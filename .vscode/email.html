@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>Form Events</title>
+    </head>
+    <body>
+        <form id="form1">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username"><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email"><br><br>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="submit" value="submit">
+            <input type="reset" value="Reset">
+        </form>
+        <script>
+            const form=document.getElementById("form1");
+            const username=document.getElementById("username");
+            const email=document.getElementById("email");
+            const password=document.getElementById("password");
+            username.addEventListener('input',validateForm);
+            email.addEventListener('input',validateForm);
+            password.addEventListener('input',validateForm);
+            form.addEventListener('submit',function(event){
+            event.preventDefault();
+            alert('form submitted successfully');
+            });
+            function validateForm(){
+
+            }
+        </script>
+    </body>
+</html>

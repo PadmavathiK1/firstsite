@@ -1,0 +1,57 @@
+<style>
+    body{
+        margin:0;
+        overflow:hidden;
+        background-color:yellowgreen;
+        transition:background-color 0.5s ease
+    }
+    .ball{
+        width:20px;
+        height:20px;
+        border-radius:50%;
+        position:absolute;
+        background-color:pink;
+    }
+</style>
+<body>
+    <script>
+        function createball(){
+            const colors=['black','red','purple','darkgreen','yellow','darkgoldenrod','darkblue','violet','orange']
+            const ball=document.createElement('div');
+            ball.classList.add('ball');
+            ball.style.left=Math.random()*(window.innerWidth-20)+'px';
+            ball.style.top=Math.random()*(window.innerHeight-20)+'px';
+            ball.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+            document.body.appendChild(ball);
+            let velocityX=Math.random()*2+1;
+            let velocityY=Math.random()*2+1;
+            function moveball(){
+                const rect=ball.getBoundingClientRect();
+                if(rect.left<=0||rect.right>=window.innerWidth){
+                    velocityX*=-1;
+                    velocityY+=(Math.random()-0.5)*2
+                }
+                if(rect.top<=0||rect.bottom>=window.innerHeight){
+                    velocityX*=-1;
+                    velocityY+=(Math.random()-0.5)*2
+                }
+                ball.style.left=(rect.left+velocityX)+'px';
+                ball.style.top=(rect.top+velocityY)+'px';
+                requestAnimationFrame(moveball);
+            }
+            moveball();
+        }
+        function changeBackgroundColor(){
+            const rgb=['skyblue','purple','pink','lightblue','lightcoral','aqua','cyano'];
+            let currentIndex=0;
+            return function(){
+                document.body.style.backgroundColor=rgb[currentIndex];
+                currentIndex=(currentIndex+1)%rgb.length;
+            };
+        }
+        for(let i=0;i<100;i++){
+            createball();
+        }
+        setInterval(changeBackgroundColor(),2000);
+    </script>
+</body>

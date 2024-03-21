@@ -1,0 +1,29 @@
+<style>
+    body{
+        margin:0;
+        overflow:hidden;
+        background-color:yellowgreen;
+        transition:background-color 0.5s ease
+    }
+</style>
+<body>
+    <script>
+        function createball(){
+            const colors=['black','red','purple','darkgreen','yellow','darkgoldenrod','darkblue','violet','orange']
+            const ball=document.getElementById('div');
+            ball.classList.add('ball');
+            ball.style.left=Math.random()*(window.innerWidth-20)+'px';
+            ball.style.top=Math.random()*(window.innerHeight-20)+'px';
+            ball.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];
+            document.body.appendChild(ball);
+            let velocityX=Math.random()*2+1;
+            let velocityY=Math.random()*2+1;
+            function moveball(){
+                const rect=ball.getBoundingClientRect();
+                if(rect.left<=0||rect.right>=window.innerWidth){
+                    
+                }
+            }
+        }
+    </script>
+</body>

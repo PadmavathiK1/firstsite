@@ -1,0 +1,14 @@
+var a="33";
+console.log(a);
+function decode(){
+if(true){
+var b=40;
+let c=50;
+const d=60;
+console.log(d);
+console.log(c);
+}
+console.log(b);
+
+}
+var newword=decode();

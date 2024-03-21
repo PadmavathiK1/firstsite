@@ -1,0 +1,20 @@
+<style>
+    div{
+        background-color:yellow;
+        height:200px;
+        width:200px;
+        transition:10s;
+    }
+    .width{
+        width:700px;
+    }
+    </style>
+    <div id="box"></div>
+    <button onclick="changecolor()">Change Color</button>
+    <script>
+        var box=document.getElementById("box")
+        function changecolor(){
+            box.setAttribute("class","width")
+            box.style.backgroundColor="red"
+        }
+    </script>
